@@ -2,6 +2,8 @@
 <?php
 require_once(dirname(__FILE__).'/../includes/steps.php');
 require_once(dirname(__FILE__).'/../includes/XmlToArray.php');
+
+ 
 function run_tests(){
     
     $res = test1();
@@ -17,8 +19,10 @@ add_action( 'wp_ajax_run_tests', 'run_tests' );
 
 function test1(){
 
+    $testKey = get_option('nmi-key');
+
     $xml = array(
-        'api-key'=>'2F822Rw39fx762MaV7Yy86jXGTC7sCDy',
+        'api-key'=>$testKey,
         'amount'=>5.55,
         'redirect-url'=>'https://wearehopecity.com/wp-admin/admin.php?page=Transnational%2Ftests'      
     );
@@ -54,8 +58,10 @@ function test2($url){
 
 function test3($token){
 
+    $testKey = get_option('nmi-key');
+
     $body = array(
-        'api-key' => '2F822Rw39fx762MaV7Yy86jXGTC7sCDy',
+        'api-key' => $testKey,
         'token-id' => $token
     );
 
