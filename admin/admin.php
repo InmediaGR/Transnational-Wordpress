@@ -26,4 +26,12 @@ function  set_nmi_key(){
    
 
 }
+
+add_action('wp_head', 'myplugin_ajaxurl');
+
+function myplugin_ajaxurl() {
+    echo '<script type="text/javascript">
+           var ajaxurl = "' . admin_url('admin-ajax.php') . '";
+         </script>';
+}
 ?>
