@@ -20,7 +20,9 @@ function init_step1(){
     $body = xmlstr_to_array($res["body"]);
 
     header('Content-Type: application/json');
-    echo json_encode($body);
+    $json = json_encode($body);
+    
+    echo $json;
 
     wp_die();
 }

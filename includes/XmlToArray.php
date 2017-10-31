@@ -13,7 +13,7 @@ function xmlstr_to_array($xmlstr) {
   $doc->loadXML($xmlstr);
   $root = $doc->documentElement;
   $output = domnode_to_array($root);
-  $output['@root'] = $root->tagName;
+  //$output['@root'] = $root->tagName;
   return $output;
 }
 function domnode_to_array($node) {

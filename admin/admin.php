@@ -16,22 +16,22 @@ function nmi_admin_menu(){
     add_option('nmi-key', 'Test Key');
 }
 
-add_action( 'admin_menu', 'nmi_admin_menu' );
-add_action( 'init', 'set_nmi_key' );
 
 function  set_nmi_key(){
     if(isset($_POST["nmi_setting"]) ==true){
         update_option('nmi-key', $_POST["txt-key"]);
     }
-   
-
+    
+    
 }
-
-add_action('wp_head', 'myplugin_ajaxurl');
 
 function myplugin_ajaxurl() {
     echo '<script type="text/javascript">
-           var ajaxurl = "' . admin_url('admin-ajax.php') . '";
-         </script>';
+    var ajaxurl = "' . admin_url('admin-ajax.php') . '";
+    </script>';
 }
+
+add_action( 'admin_menu', 'nmi_admin_menu' );
+add_action( 'init', 'set_nmi_key' );
+add_action('wp_head', 'myplugin_ajaxurl');
 ?>

@@ -37,7 +37,7 @@ function step2($body, $url){
 function step3($data){
     $xmlMaker = new ArrayToXML();
     $xml = $xmlMaker->buildXML($data, "complete-action");
-    echo "sent xml is ". $xml;
+   
     $options = array(
         'method' => 'POST',
         'blocking' => true,
