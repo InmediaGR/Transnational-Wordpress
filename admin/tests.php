@@ -24,7 +24,7 @@ function test1(){
     $xml = array(
         'api-key'=>$testKey,
         'amount'=>5.55,
-        'redirect-url'=>'https://wearehopecity.com/wp-admin/admin.php?page=Transnational%2Ftests'      
+        'redirect-url'=>'https://dev.rcoministries.org/wp-admin/admin.php?page=Transnational%2Ftests'      
     );
     $res = step1($xml, "sale");
     echo "<h2>test 1</h2>";
