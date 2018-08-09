@@ -15,7 +15,7 @@ function init_step1(){
     $xml = array(
         'api-key'=>$testKey,
         'amount'=>$_POST["amount"],
-        'redirect-url'=>$_POST["redirect-url"],
+        'redirect-url'=>$_POST["redirect-url"]
     );
     
     //====
@@ -24,7 +24,7 @@ function init_step1(){
     $billing = array();
     foreach($_POST as $key => $value) {
         if (strpos($key, 'billing-') === 0) {
-            $billing[str_replace("billing-", "", $key)] = $value
+            $billing[str_replace("billing-", "", $key)] = $value;
         }
     }
     if(count($billing) > 0)
@@ -36,7 +36,7 @@ function init_step1(){
     $shipping = array();
     foreach($_POST as $key => $value) {
         if (strpos($key, 'shipping-') === 0) {
-            $shipping[str_replace("shipping-", "", $key)] = $value
+            $shipping[str_replace("shipping-", "", $key)] = $value;
         }
     }
     if(count($shipping) > 0)
@@ -48,7 +48,8 @@ function init_step1(){
     $product = array();
     foreach($_POST as $key => $value) {
         if (strpos($key, 'product-') === 0) {
-            $product[str_replace("product-", "", $key)] = $value
+            $k = str_replace("product-", "", $key);
+            $product[$k == "code"? "product-code" : $k ] = $value;
         }
     }
     if(count($product) > 0)
