@@ -55,6 +55,24 @@ function init_step1(){
     if(count($product) > 0)
         $xml["product"] = $product;
 
+    //====
+    // plan info
+    //====
+    $plan = array();
+    foreach($_POST as $key => $value) {
+        if (strpos($key, 'plan-') === 0) {
+            $plan[str_replace("plan-", "", $key)] = $value;
+        }
+    }
+    if(count($plan) > 0 && isset($_POST['plan-start'])){
+        //add subscription to sale
+        $subscription = array(
+            "start-date" => $_POST['subscription-start'],
+            "plan" => $plan
+        );
+        $xml["add-subscription"] = $subscription;
+    }
+        
     $res = step1($xml, "sale");
     $body = xmlstr_to_array($res["body"]);
 
